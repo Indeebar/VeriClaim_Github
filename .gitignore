@@ -1,0 +1,14 @@
+data/
+*.pt
+*.pkl
+*.h5
+venv/
+.env
+__pycache__/
+*.pyc
+*.egg-info/
+.DS_Store
+*.pem
+.aws/
+kaggle.json
+.ipynb_checkpoints/
