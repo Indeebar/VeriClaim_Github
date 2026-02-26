@@ -1,0 +1,40 @@
+{
+  "high_risk_patterns": [
+    "vehicle caught fire spontaneously with no prior warning",
+    "total loss hit and run no witnesses present",
+    "parked car severely damaged overnight nobody saw anything",
+    "flooded during unseasonal rain in dry area",
+    "accident happened in remote location with no cameras",
+    "vehicle rolled off cliff no passengers were injured",
+    "unknown vehicle fled the scene immediately after impact",
+    "all documents and evidence were lost in the accident",
+    "car stolen from basement parking no CCTV footage available",
+    "accident occurred at 3am on completely deserted highway",
+    "fire started in engine compartment cause unknown",
+    "vehicle submerged in water no witnesses no police report",
+    "collision with animal in urban area late at night",
+    "brake failure caused accident no prior maintenance issues",
+    "vehicle vandalized overnight in secure gated community"
+  ],
+  "high_risk_keywords": [
+    "total loss",
+    "fire",
+    "stolen",
+    "no witnesses",
+    "no cctv",
+    "fled scene",
+    "remote location",
+    "deserted",
+    "overnight",
+    "basement parking",
+    "3am",
+    "no cameras",
+    "spontaneous",
+    "unknown vehicle",
+    "documents lost",
+    "no police report",
+    "unseasonal",
+    "submerged",
+    "brake failure"
+  ]
+}
