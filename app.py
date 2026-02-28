@@ -23,15 +23,39 @@ st.set_page_config(
 
 st.title("🔍 VeriClaim - AI Fraud Detection System")
 
-# ───────────────── MODEL LOADING (CACHED = FAST) ─────────────────
+# ───────────────── MODEL LOADING (REAL CACHE) ─────────────────
 @st.cache_resource
-def load_models():
-    # Your predict modules should internally load:
-    # - best_model.pt
-    # - xgb_fraud_model.pkl
-    return True  # placeholder since your modules handle loading
+def warmup_models():
+    """
+    Forces internal modules to load models once and cache them.
+    Prevents repeated torch + xgboost loading on every rerun.
+    """
+    try:
+        # Dummy warmup calls to trigger internal model loading
+        from PIL import Image
+        dummy_img = Image.new("RGB", (224, 224))
+        
+        _ = predict_damage(dummy_img)
+        
+        dummy_claim = {
+            "Make": "Honda",
+            "AccidentArea": "Urban",
+            "Fault": "Policy Holder",
+            "Age": 30,
+            "PastNumberOfClaims": "none",
+            "incident_description": "minor accident",
+            "damage_severity": "minor",
+            "damage_confidence": 0.5,
+            "anomaly_score": 0.1,
+        }
+        _ = predict_fraud(dummy_claim)
+        
+    except Exception as e:
+        print(f"Model warmup warning: {e}")
+    
+    return True
 
-load_models()
+warmup_models()
 
 # ───────────────── INPUT UI ─────────────────
 col1, col2 = st.columns(2)
