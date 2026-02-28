@@ -9,3 +9,4 @@ torchvision==0.17.2
 joblib==1.5.1
 shap==0.48.0
 timm==0.9.12
+sentence-transformers==2.7.0
