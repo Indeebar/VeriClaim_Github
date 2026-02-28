@@ -78,10 +78,11 @@ def load_all_models():
     from models.fraud_classifier.predict import load_fraud_model
     from models.fraud_classifier.shap_explain import load_explainer
 
-    load_damage('models/damage_classifier/best_model.pt')
-    load_nlp_model('models/claim_nlp/fraud_patterns.json')
-    load_fraud_model('models/fraud_classifier/xgb_fraud_model.pkl')
-    load_explainer('models/fraud_classifier/xgb_fraud_model.pkl')
+    base = Path(__file__).resolve().parent
+    load_damage(str(base / 'models/damage_classifier/best_model.pt'))
+    load_nlp_model(str(base / 'models/claim_nlp/fraud_patterns.json'))
+    load_fraud_model(str(base / 'models/fraud_classifier/xgb_fraud_model.pkl'))
+    load_explainer(str(base / 'models/fraud_classifier/xgb_fraud_model.pkl'))
     return True
 
 models_loaded = load_all_models()
