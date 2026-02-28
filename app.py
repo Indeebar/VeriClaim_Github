@@ -12,7 +12,7 @@ sys.path.append(str(BASE_DIR))
 # Import your internal modules
 from models.damage_classifier.predict import predict_damage
 from models.fraud_classifier.predict import predict_fraud
-from models.claim_nlp.anomaly_score import get_anomaly_score
+from models.claim_nlp.anomaly_score import score_text as get_anomaly_score
 
 # ───────────────── PAGE CONFIG ─────────────────
 st.set_page_config(
@@ -106,7 +106,10 @@ if analyse:
         damage_conf = damage_result["confidence"]
 
         # 2️⃣ NLP ANOMALY SCORE
-        anomaly_score = get_anomaly_score(description)
+        anomaly_result = get_anomaly_score(description)
+
+        anomaly_score = anomaly_result["anomaly_score"]
+        triggered_keywords = anomaly_result.get("triggered_keywords", [])
 
         # 3️⃣ STRUCTURED CLAIM DATA (same as your backend)
         claim_data = {
